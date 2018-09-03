@@ -1,2 +1,4 @@
 *.iml
 *.retry
+.DS_Store
+vars.yml
