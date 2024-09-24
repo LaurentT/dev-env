@@ -1,0 +1,23 @@
+- name: Create /home/{{ ansible_user }}/tmp directory
+  ansible.builtin.file:
+    path: /home/{{ ansible_user }}/tmp
+    state: directory
+    mode: '0755'
+    
+- name: Download SDKMAN
+  get_url:
+    url: https://get.sdkman.io
+    dest: '/home/{{ ansible_user }}/tmp/sdkman_script'
+    owner: '{{ ansible_user }}'
+    group: '{{ ansible_user }}'
+    validate_certs: true
+  become: yes
+        
+- name: Run sdkman script if /home/{{ ansible_user }}/.sdkman/bin/sdkman-init.sh does not exist
+  ansible.builtin.command: /bin/bash /home/{{ ansible_user }}/tmp/sdkman_script
+  args:
+    creates: /home/{{ ansible_user }}/.sdkman/bin/sdkman-init.sh
+  become: yes
+    
+- name: Source sdkman
+  ansible.builtin.command: /bin/bash /home/{{ ansible_user }}/.sdkman/bin/sdkman-init.sh

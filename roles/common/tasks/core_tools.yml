@@ -24,32 +24,26 @@
   with_items:
   - build-essential
   - tmux
+  - curl
   - httpie
   - jq
   - git-flow
   - docker-ce
+  - zip
   - unzip
-  - vim-gtk
+  - vim
   - silversearcher-ag
   become: yes
 
 - name: Allow docker for non root
   command: groupadd -f docker
   become: yes
-- user: name={{ansible_user}} groups=docker append=yes
+- user: name={{ ansible_user }} groups=docker append=yes
+  become: yes
+  
+- name: Install docker compose plugin
+  apt:
+    name: docker-compose-plugin
+    install_recommends: yes
   become: yes
 
-- name: Install docker-compose
-  get_url:
-    url: https://github.com/docker/compose/releases/download/{{ dc_version }}/docker-compose-{{ ansible_system }}-{{ ansible_userspace_architecture }}
-    dest: /usr/local/bin/docker-compose
-    mode: 0755
-  become: yes
-
-# Tmux
-- name: Install tmux plugin manager
-  file: path=~/.tmux/plugins/tpm state=directory
-- git: 
-    repo: https://github.com/tmux-plugins/tpm 
-    dest: ~/.tmux/plugins/tpm 
-    update: no

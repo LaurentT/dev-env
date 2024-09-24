@@ -7,7 +7,6 @@ alias setjava7='export JAVA_HOME=/usr/lib/jvm/java-7-oracle'
 alias setjava8='export JAVA_HOME=/usr/lib/jvm/java-8-oracle'
 
 # maven
-alias mvn='~/applications/maven/bin/mvn'
 alias mci='mvn clean install'
 alias mcis='mvn clean install -DskipTests'
 alias mct='mvn clean test'

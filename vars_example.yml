@@ -1,23 +1,15 @@
 
 # Git user information
-email: "augustin.gjini@gmail.com"
-username: "Augustin Gjini"
+email: "laurent.tonon@gmail.com"
+username: "Laurent Tonon"
 
 # Java version
-jdk: "java-se-8u40-ri"
-jdk_url: "https://download.java.net/openjdk/jdk8u40/ri/jdk_ri-8u40-b25-linux-x64-10_feb_2015.tar.gz"
-# oracle_jdk: "jdk-10.0.2"
-# oracle_jdk_url: "http://download.oracle.com/otn-pub/java/jdk/10.0.2+13/19aef61b38124481863b1413dce1855f/jdk-10.0.2_linux-x64_bin.tar.gz"
-
-gradle_version: "4.10.2"
-maven_version: "3.5.4"
+jdk17_version: "17.0.8-ms"
+jdk21_version: "21.0.2-open"
+maven_version: "3.9.4"
 
 # Docker compose
 dc_version: "1.22.0"
-
-# Node js
-node_previous_version: "8.9.4"
-node_version: "10.2.1"
 
 # A nexus repository (to be used in maven settings.xml)
 nexus_repository: "https://nexus.liveaction.com/repository/public/"

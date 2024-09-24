@@ -1,7 +1,6 @@
-
-- name: Build home
+- name: Home building
   import_tasks: home_building.yml
 
-- name: Install minimal tools
-  import_tasks: minimal_tools.yml
+- name: Install core tools (curl, jq, docker, docker compose)
+  import_tasks: core_tools.yml
   when: ansible_os_family == "Debian"
